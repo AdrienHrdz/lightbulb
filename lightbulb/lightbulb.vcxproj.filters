@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="lightbulb.cpp">
+    <ClCompile Include="src\lightbulb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
