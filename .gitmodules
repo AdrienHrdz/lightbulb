@@ -1,0 +1,3 @@
+[submodule "lightbulb/lib/glm"]
+	path = lightbulb/lib/glm
+	url = https://github.com/g-truc/glm.git
