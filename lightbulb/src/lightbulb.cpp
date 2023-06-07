@@ -72,9 +72,9 @@ int main()
 
 
     }
+    glfwTerminate();
     ImGui::DestroyContext();
 
-    glfwTerminate();
 
     //// Build atlas
     //unsigned char* tex_pixels = nullptr;
