@@ -10,6 +10,9 @@
 
 #include <iostream>
 
+// Emedded font
+#include "../assets/Roboto-Regular.embed"
+
 int main()
 {
     GLFWwindow* window;
@@ -19,7 +22,7 @@ int main()
         return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "LightBulb", NULL, NULL);
+    window = glfwCreateWindow(1920, 1080, "LightBulb", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -33,13 +36,29 @@ int main()
 
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;        // Enable Gamepad Controls
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // docking
+    //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
 
     ImGui::StyleColorsDark();
 
+    ImGuiStyle& style = ImGui::GetStyle();
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    {
+        style.WindowRounding = 0.0f;
+        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+    }
+
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
+
+    // Load default font
+    ImFontConfig fontConfig;
+    fontConfig.FontDataOwnedByAtlas = false;
+    ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 35.0f, &fontConfig);
+    io.FontDefault = robotoFont;
+
 
 
     // Our state
@@ -54,11 +73,6 @@ int main()
         /* Poll for and process events */
         glfwPollEvents();
 
-        ///* Render here */
-        //glClear(GL_COLOR_BUFFER_BIT);
-
-        ///* Swap front and back buffers */
-        //glfwSwapBuffers(window);
 
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
@@ -66,24 +80,10 @@ int main()
         ImGui::NewFrame();
 
         {
-            static float f = 0.0f;
-            static int counter = 0;
+            ImGui::Begin("Viewport");
+            ImGui::End();
 
-            ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
-
-            ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-            ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-            ImGui::Checkbox("Another Window", &show_another_window);
-
-            ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-            ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
-
-            if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-                counter++;
-            ImGui::SameLine();
-            ImGui::Text("counter = %d", counter);
-
-            ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+            ImGui::Begin("Settings");
             ImGui::End();
         }
 
@@ -99,29 +99,9 @@ int main()
 
         glfwSwapBuffers(window);
 
-        //ImGuiIO& io = ImGui::GetIO();
+        
+    }// End While
 
-        //int n = 20;
-        //printf("NewFrame() %d\n", n);
-        //io.DisplaySize = ImVec2(1920, 1080);
-        //io.DeltaTime = 1.0f / 60.0f;
-        //ImGui_ImplOpenGL3_NewFrame();
-        //ImGui::NewFrame();
-
-
-        ////ImGui::Begin("fenetre");
-        //static float f = 0.0f;
-        //ImGui::Text("Hello, world!");
-        //ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-        //ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
-        //ImGui::ShowDemoWindow(nullptr);
-
-        //ImGui::Render();
-        //ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-
-        //ImGui::End();
-    }
     // Cleanup
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
@@ -130,28 +110,5 @@ int main()
     glfwDestroyWindow(window);
     glfwTerminate();
 
-    //// Build atlas
-    //unsigned char* tex_pixels = nullptr;
-    //int tex_w, tex_h;
-    //io.Fonts->GetTexDataAsRGBA32(&tex_pixels, &tex_w, &tex_h);
-
-    //while (true)
-    //{
-    //    int n = 20;
-    //    printf("NewFrame() %d\n", n);
-    //    io.DisplaySize = ImVec2(1920, 1080);
-    //    io.DeltaTime = 1.0f / 60.0f;
-    //    ImGui::NewFrame();
-
-    //    static float f = 0.0f;
-    //    ImGui::Text("Hello, world!");
-    //    ImGui::SliderFloat("float", &f, 0.0f, 1.0f);
-    //    ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
-    //    ImGui::ShowDemoWindow(nullptr);
-
-    //    ImGui::Render();
-    //}
-
-    //printf("DestroyContext()\n");
     return 0;
 }
