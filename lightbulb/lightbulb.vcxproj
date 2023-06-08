@@ -466,11 +466,9 @@
     <ClInclude Include="lib\glm\glm\vector_relational.hpp" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_glfw.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_glut.h" />
-    <ClInclude Include="lib\imgui\backends\imgui_impl_metal.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_opengl2.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_opengl3.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="lib\imgui\backends\imgui_impl_osx.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_win32.h" />
     <ClInclude Include="lib\imgui\imconfig.h" />
     <ClInclude Include="lib\imgui\imgui.h" />
