@@ -165,7 +165,6 @@
   <ItemGroup>
     <ClCompile Include="lib\glm\glm\detail\glm.cpp" />
     <ClCompile Include="lib\imgui\backends\imgui_impl_glfw.cpp" />
-    <ClCompile Include="lib\imgui\backends\imgui_impl_glut.cpp" />
     <ClCompile Include="lib\imgui\backends\imgui_impl_opengl2.cpp" />
     <ClCompile Include="lib\imgui\backends\imgui_impl_opengl3.cpp" />
     <ClCompile Include="lib\imgui\backends\imgui_impl_win32.cpp" />
@@ -177,6 +176,12 @@
     <ClCompile Include="src\lightbulb.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\GLEW\include\GL\eglew.h" />
+    <ClInclude Include="lib\GLEW\include\GL\glew.h" />
+    <ClInclude Include="lib\GLEW\include\GL\glxew.h" />
+    <ClInclude Include="lib\GLEW\include\GL\wglew.h" />
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3.h" />
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3native.h" />
     <ClInclude Include="lib\glm\glm\common.hpp" />
     <ClInclude Include="lib\glm\glm\detail\compute_common.hpp" />
     <ClInclude Include="lib\glm\glm\detail\compute_vector_relational.hpp" />
@@ -465,7 +470,6 @@
     <ClInclude Include="lib\glm\glm\vec4.hpp" />
     <ClInclude Include="lib\glm\glm\vector_relational.hpp" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_glfw.h" />
-    <ClInclude Include="lib\imgui\backends\imgui_impl_glut.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_opengl2.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_opengl3.h" />
     <ClInclude Include="lib\imgui\backends\imgui_impl_opengl3_loader.h" />

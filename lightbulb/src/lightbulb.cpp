@@ -1,8 +1,8 @@
 // lightbulb.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <GL\glew.h>
-#include <GLFW\glfw3.h>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <imgui.h>
 #include <backends/imgui_impl_glfw.h>
@@ -22,7 +22,7 @@ int main()
         return -1;
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1920, 1080, "LightBulb", NULL, NULL);
+    window = glfwCreateWindow(1080, 720, "LightBulb", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -51,7 +51,7 @@ int main()
     }
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("#version 130");
+    ImGui_ImplOpenGL3_Init("#version 430");
 
     // Load default font
     ImFontConfig fontConfig;
@@ -73,7 +73,6 @@ int main()
         /* Poll for and process events */
         glfwPollEvents();
 
-
         // Start the Dear ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
@@ -81,9 +80,11 @@ int main()
 
         {
             ImGui::Begin("Viewport");
+
             ImGui::End();
 
             ImGui::Begin("Settings");
+
             ImGui::End();
         }
 
@@ -93,13 +94,13 @@ int main()
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);
-        glClearColor(clear_color.x * clear_color.w, clear_color.y * clear_color.w, clear_color.z * clear_color.w, clear_color.w);
+        glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
         glClear(GL_COLOR_BUFFER_BIT);
+
+
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
         glfwSwapBuffers(window);
-
-        
     }// End While
 
     // Cleanup

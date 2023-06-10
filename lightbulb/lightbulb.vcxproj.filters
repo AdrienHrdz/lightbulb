@@ -39,9 +39,6 @@
     <ClCompile Include="lib\imgui\backends\imgui_impl_glfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lib\imgui\backends\imgui_impl_glut.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="lib\imgui\backends\imgui_impl_opengl2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -935,9 +932,6 @@
     <ClInclude Include="lib\imgui\backends\imgui_impl_glfw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="lib\imgui\backends\imgui_impl_glut.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="lib\imgui\backends\imgui_impl_opengl2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -948,6 +942,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="lib\imgui\backends\imgui_impl_win32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLEW\include\GL\eglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLEW\include\GL\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLEW\include\GL\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLEW\include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\GLFW\include\GLFW\glfw3native.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
