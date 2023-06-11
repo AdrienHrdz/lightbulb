@@ -10,6 +10,8 @@
 
 #include <iostream>
 
+#include "Application.h"
+
 // Emedded font
 #include "../assets/Roboto-Regular.embed"
 
