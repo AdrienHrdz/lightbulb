@@ -10,6 +10,8 @@
 
 #include <iostream>
 
+#include "Application.h"
+
 // Emedded font
 #include "../assets/Roboto-Regular.embed"
 
@@ -56,7 +58,7 @@ int main()
     // Load default font
     ImFontConfig fontConfig;
     fontConfig.FontDataOwnedByAtlas = false;
-    ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 35.0f, &fontConfig);
+    ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 20.0f, &fontConfig);
     io.FontDefault = robotoFont;
 
 
