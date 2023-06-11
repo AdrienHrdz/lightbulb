@@ -5,7 +5,7 @@
 #include <imgui.h>
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
-
+#include "../assets/Roboto-Regular.embed"
 #include <iostream>
 
 Window::Window(uint32_t width, uint32_t height, const std::string& title)
@@ -55,6 +55,18 @@ void Window::initialize()
 
 	ImGui_ImplGlfw_InitForOpenGL(m_window, true);
 	ImGui_ImplOpenGL3_Init("#version 430");
+
+	// Load default font
+	const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+	float fontSize;
+	if (mode->width > 2000)
+		fontSize = 35.0F;
+	else
+		fontSize = 20.0f;
+	ImFontConfig fontConfig;
+	fontConfig.FontDataOwnedByAtlas = false;
+	ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), fontSize, &fontConfig);
+	io.FontDefault = robotoFont;
 }
 
 void Window::shutdown()
