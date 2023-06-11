@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include <iostream>
+
 #include <GLFW/glfw3.h>
 
 Window::Window(uint32_t width, uint32_t height, const std::string& title)
@@ -10,7 +12,7 @@ Window::Window(uint32_t width, uint32_t height, const std::string& title)
 
 void Window::initialize()
 {
-	if (!glfwInit())
+	if(!glfwInit())
 		return;
 
 	m_window = glfwCreateWindow(m_width, m_height, m_title.c_str());
@@ -31,5 +33,5 @@ void Window::shutdown()
 
 void Window::onUpdate()
 {
-
+	std::count << "on window update" << std::endl;
 }

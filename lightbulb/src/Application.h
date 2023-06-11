@@ -1,24 +1,20 @@
 #pragma once
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <imgui.h>
-#include <backends/imgui_impl_glfw.h>
-#include <backends/imgui_impl_opengl3.h>
-
+#include <string>
 #include "Window.h"
 
 class Application
 {
-
 public:
-	Application();
+	Application(const std::string& title);
 	~Application();
-	void init();
+
+	void initialize();
 	void shutdown();
 	void run();
 
-public:
-	Window* m_Window;
+private:
+	Window* m_window;
+
+	bool m_running = true;
 };
