@@ -56,10 +56,13 @@ int main()
     // Load default font
     ImFontConfig fontConfig;
     fontConfig.FontDataOwnedByAtlas = false;
-    ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 35.0f, &fontConfig);
+    ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 20.0f, &fontConfig);
     io.FontDefault = robotoFont;
 
+    const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 
+    std::cout << "Width : " << mode->width << std::endl;
+    std::cout << "Height : " << mode->height << std::endl;
 
     // Our state
     bool show_demo_window = true;
