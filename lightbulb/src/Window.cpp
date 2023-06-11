@@ -33,11 +33,8 @@ void Window::shutdown()
 
 void Window::onUpdate()
 {
-<<<<<<< HEAD
-=======
 	glfwPollEvents();
 	glfwSwapBuffers(m_window);
 
->>>>>>> 2c899aff754a4f2363b8873928a8cc38749dcddd
 	std::cout << "on window update" << std::endl;
 }
