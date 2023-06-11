@@ -19,7 +19,7 @@ int main()
 {
     Application* app = new Application("LightBulb");
 
-    app->init();
+    app->initialize();
 
     app->run();
 
