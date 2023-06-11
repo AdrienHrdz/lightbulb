@@ -1,30 +1,15 @@
 // lightbulb.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <imgui.h>
-#include <backends/imgui_impl_glfw.h>
-#include <backends/imgui_impl_opengl3.h>
-
-#include <iostream>
-
 #include "Application.h"
-
-// Emedded font
-#include "../assets/Roboto-Regular.embed"
 
 int main()
 {
     Application* app = new Application("LightBulb");
 
-    app->initialize();
-
     app->run();
 
-    app->shutdown();
-
+    delete app;
     return 0;
 
     //GLFWwindow* window;
@@ -105,14 +90,13 @@ int main()
 
 
     //    // Rendering
-    //    ImGui::Render();
     //    int display_w, display_h;
     //    glfwGetFramebufferSize(window, &display_w, &display_h);
     //    glViewport(0, 0, display_w, display_h);
     //    glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
     //    glClear(GL_COLOR_BUFFER_BIT);
 
-
+    //    ImGui::Render();
     //    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
     //    glfwSwapBuffers(window);
@@ -125,6 +109,4 @@ int main()
 
     //glfwDestroyWindow(window);
     //glfwTerminate();
-
-    return 0;
 }
