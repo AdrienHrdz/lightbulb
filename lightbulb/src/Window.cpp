@@ -15,7 +15,7 @@ void Window::initialize()
 	if(!glfwInit())
 		return;
 
-	m_window = glfwCreateWindow(m_width, m_height, m_title.c_str());
+	m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
 	if (!m_window)
 	{
 		glfwTerminate();
@@ -33,5 +33,8 @@ void Window::shutdown()
 
 void Window::onUpdate()
 {
-	std::count << "on window update" << std::endl;
+	glfwPollEvents();
+	glfwSwapBuffers(m_window);
+
+	std::cout << "on window update" << std::endl;
 }
