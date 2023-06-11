@@ -17,104 +17,114 @@
 
 int main()
 {
-    GLFWwindow* window;
+    Application* app = new Application("LightBulb");
 
-    /* Initialize the library */
-    if (!glfwInit())
-        return -1;
+    app->init();
 
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1080, 720, "LightBulb", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        return -1;
-    }
+    app->run();
 
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
+    app->shutdown();
 
-    glewInit();
+    return 0;
 
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO(); (void)io;
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;        // Enable Gamepad Controls
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // docking
-    //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
+    //GLFWwindow* window;
 
-    ImGui::StyleColorsDark();
+    ///* Initialize the library */
+    //if (!glfwInit())
+    //    return -1;
 
-    ImGuiStyle& style = ImGui::GetStyle();
-    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-    {
-        style.WindowRounding = 0.0f;
-        style.Colors[ImGuiCol_WindowBg].w = 1.0f;
-    }
+    ///* Create a windowed mode window and its OpenGL context */
+    //window = glfwCreateWindow(1080, 720, "LightBulb", NULL, NULL);
+    //if (!window)
+    //{
+    //    glfwTerminate();
+    //    return -1;
+    //}
 
-    ImGui_ImplGlfw_InitForOpenGL(window, true);
-    ImGui_ImplOpenGL3_Init("#version 430");
+    ///* Make the window's context current */
+    //glfwMakeContextCurrent(window);
 
-    // Load default font
-    ImFontConfig fontConfig;
-    fontConfig.FontDataOwnedByAtlas = false;
-    ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 20.0f, &fontConfig);
-    io.FontDefault = robotoFont;
+    //glewInit();
 
-    const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
+    //ImGui::CreateContext();
+    //ImGuiIO& io = ImGui::GetIO(); (void)io;
+    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;       // Enable Keyboard Controls
+    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;        // Enable Gamepad Controls
+    //io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // docking
+    ////io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
 
-    std::cout << "Width : " << mode->width << std::endl;
-    std::cout << "Height : " << mode->height << std::endl;
+    //ImGui::StyleColorsDark();
 
-    // Our state
-    bool show_demo_window = true;
-    bool show_another_window = false;
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+    //ImGuiStyle& style = ImGui::GetStyle();
+    //if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+    //{
+    //    style.WindowRounding = 0.0f;
+    //    style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+    //}
 
+    //ImGui_ImplGlfw_InitForOpenGL(window, true);
+    //ImGui_ImplOpenGL3_Init("#version 430");
 
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
-        /* Poll for and process events */
-        glfwPollEvents();
+    //// Load default font
+    //ImFontConfig fontConfig;
+    //fontConfig.FontDataOwnedByAtlas = false;
+    //ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 20.0f, &fontConfig);
+    //io.FontDefault = robotoFont;
 
-        // Start the Dear ImGui frame
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplGlfw_NewFrame();
-        ImGui::NewFrame();
+    //const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 
-        {
-            ImGui::Begin("Viewport");
+    //std::cout << "Width : " << mode->width << std::endl;
+    //std::cout << "Height : " << mode->height << std::endl;
 
-            ImGui::End();
-
-            ImGui::Begin("Settings");
-
-            ImGui::End();
-        }
+    //// Our state
+    //bool show_demo_window = true;
+    //bool show_another_window = false;
+    //ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
 
-        // Rendering
-        ImGui::Render();
-        int display_w, display_h;
-        glfwGetFramebufferSize(window, &display_w, &display_h);
-        glViewport(0, 0, display_w, display_h);
-        glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-        glClear(GL_COLOR_BUFFER_BIT);
+    ///* Loop until the user closes the window */
+    //while (!glfwWindowShouldClose(window))
+    //{
+    //    /* Poll for and process events */
+    //    glfwPollEvents();
+
+    //    // Start the Dear ImGui frame
+    //    ImGui_ImplOpenGL3_NewFrame();
+    //    ImGui_ImplGlfw_NewFrame();
+    //    ImGui::NewFrame();
+
+    //    {
+    //        ImGui::Begin("Viewport");
+
+    //        ImGui::End();
+
+    //        ImGui::Begin("Settings");
+
+    //        ImGui::End();
+    //    }
 
 
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    //    // Rendering
+    //    ImGui::Render();
+    //    int display_w, display_h;
+    //    glfwGetFramebufferSize(window, &display_w, &display_h);
+    //    glViewport(0, 0, display_w, display_h);
+    //    glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+    //    glClear(GL_COLOR_BUFFER_BIT);
 
-        glfwSwapBuffers(window);
-    }// End While
 
-    // Cleanup
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
+    //    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
-    glfwDestroyWindow(window);
-    glfwTerminate();
+    //    glfwSwapBuffers(window);
+    //}// End While
+
+    //// Cleanup
+    //ImGui_ImplOpenGL3_Shutdown();
+    //ImGui_ImplGlfw_Shutdown();
+    //ImGui::DestroyContext();
+
+    //glfwDestroyWindow(window);
+    //glfwTerminate();
 
     return 0;
 }
