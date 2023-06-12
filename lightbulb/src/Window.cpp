@@ -35,6 +35,11 @@ void Window::initialize()
 
 	glfwMakeContextCurrent(m_window);
 
+	glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window)
+	{
+		std::cout << "on close event" << std::endl;
+	});
+
 	/*****************************************
 					IMGUI
 	*****************************************/
