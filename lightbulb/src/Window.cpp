@@ -39,6 +39,25 @@ void Window::initialize()
 	{
 		std::cout << "on close event" << std::endl;
 	});
+	glfwSetCursorPosCallback(m_window, [](GLFWwindow* window, double pos_x, double pos_y)
+	{
+		std::cout << "Mouse move : [" << pos_x << ", " << pos_y << "]" << std::endl;
+	});
+	glfwSetKeyCallback(m_window, [](GLFWwindow* window, int keyCode, int scancode, int action, int mods)
+	{
+		switch (action)
+		{
+		case GLFW_PRESS : 
+			std::cout << "Key pressed : " << keyCode << std::endl;
+			break;
+		case GLFW_RELEASE:
+			std::cout << "Key released : " << keyCode << std::endl;
+			break;
+		case GLFW_REPEAT:
+			std::cout << "Key repeated : " << keyCode << std::endl;
+			break;
+		}
+	});
 
 	/*****************************************
 					IMGUI
