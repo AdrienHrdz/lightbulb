@@ -1,4 +1,5 @@
 #pragma once
+#include "glhelper.h"
 
 #include <string>
 #include <functional>
@@ -38,4 +39,6 @@ private:
 	WindowData m_windowData;
 
 	GLFWwindow* m_window = nullptr;
+
+	unsigned int m_gpuProgramID;
 };
