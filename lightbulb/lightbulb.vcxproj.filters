@@ -48,6 +48,18 @@
     <ClCompile Include="lib\imgui\backends\imgui_impl_win32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\glm\glm\detail\_features.hpp">
@@ -962,6 +974,18 @@
     <ClInclude Include="lib\GLFW\include\GLFW\glfw3native.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="lib\glm\glm\detail\func_common.inl">
@@ -1382,5 +1406,7 @@
       <Filter>Header Files</Filter>
     </None>
     <None Include="lib\imgui\Roboto-Regular.embed" />
+    <None Include="shaders\VertexShader.vert" />
+    <None Include="shaders\FragmentShader.frag" />
   </ItemGroup>
 </Project>

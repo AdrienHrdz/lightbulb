@@ -174,7 +174,9 @@
     <ClCompile Include="lib\imgui\imgui_tables.cpp" />
     <ClCompile Include="lib\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\glhelper.cpp" />
     <ClCompile Include="src\lightbulb.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -483,6 +485,8 @@
     <ClInclude Include="lib\imgui\imstb_textedit.h" />
     <ClInclude Include="lib\imgui\imstb_truetype.h" />
     <ClInclude Include="src\Application.h" />
+    <ClInclude Include="src\glhelper.h" />
+    <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -626,6 +630,8 @@
     <None Include="lib\glm\glm\gtx\vector_query.inl" />
     <None Include="lib\glm\glm\gtx\wrap.inl" />
     <None Include="lib\imgui\Roboto-Regular.embed" />
+    <None Include="shaders\FragmentShader.frag" />
+    <None Include="shaders\VertexShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
