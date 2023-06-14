@@ -487,6 +487,7 @@
     <ClInclude Include="src\Application.h" />
     <ClInclude Include="src\glhelper.h" />
     <ClInclude Include="src\Renderer.h" />
+    <ClInclude Include="src\Event\Event.h" />
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>

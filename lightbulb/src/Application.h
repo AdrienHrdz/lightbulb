@@ -4,7 +4,7 @@
 #include <memory>
 
 #include "Window.h"
-//#include "Gui.h"
+#include "Event/Event.h"
 
 class Application
 {
@@ -13,7 +13,7 @@ public:
 	~Application();
 
 	static Application& get() { return *s_instance; }
-	const std::shared_ptr<Window> getWindow() const { return m_window; }
+	const std::unique_ptr<Window>& getWindow() const { return m_window; }
 
 	void run();
 
@@ -21,8 +21,11 @@ private:
 	void initialize();
 	void shutdown();
 
+	void onEvent(Event& e);
+	bool onWindowClose(WindowCloseEvent& e);
+
 private:
-	std::shared_ptr<Window> m_window;
+	std::unique_ptr<Window> m_window;
 
 	bool m_running = true;
 
