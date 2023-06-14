@@ -5,14 +5,16 @@
 #include <imgui.h>
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
+
 #include "../assets/Roboto-Regular.embed"
+
 #include <iostream>
 
 Window::Window(uint32_t width, uint32_t height, const std::string& title)
-	: m_width(width)
-	, m_height(height)
-	, m_title(title)
 {
+	m_windowData.width = width;
+	m_windowData.height = height;
+	m_windowData.title = title;
 	initialize();
 }
 
@@ -26,7 +28,7 @@ void Window::initialize()
 	if(!glfwInit())
 		return;
 
-	m_window = glfwCreateWindow(m_width, m_height, m_title.c_str(), NULL, NULL);
+	m_window = glfwCreateWindow(m_windowData.width, m_windowData.height, m_windowData.title.c_str(), NULL, NULL);
 	if (!m_window)
 	{
 		glfwTerminate();
@@ -34,6 +36,15 @@ void Window::initialize()
 	}
 
 	glfwMakeContextCurrent(m_window);
+
+	glfwSetWindowUserPointer(m_window, &m_windowData);
+
+	glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window)
+	{
+		WindowCloseEvent event;
+		WindowData* windowData = (WindowData*)glfwGetWindowUserPointer(window);
+		windowData->callbackFunction(event);
+	});
 
 	/*****************************************
 					IMGUI
@@ -92,7 +103,7 @@ void Window::onUpdate()
 	int display_w, display_h;
     glfwGetFramebufferSize(m_window, &display_w, &display_h);
     glViewport(0, 0, display_w, display_h);
-    glClearColor(0.45f, 0.55f, 0.60f, 1.00f);
+    glClearColor(0.20f, 0.20f, 0.20f, 1.00f);
     glClear(GL_COLOR_BUFFER_BIT);
 
 	ImGui::Render();
