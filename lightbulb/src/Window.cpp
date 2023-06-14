@@ -67,6 +67,14 @@ void Window::initialize()
 	fontConfig.FontDataOwnedByAtlas = false;
 	ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), fontSize, &fontConfig);
 	io.FontDefault = robotoFont;
+
+	/*****************************************
+					GPU
+	*****************************************/
+	GLenum err = glewInit();
+	m_gpuProgramID = glhelper::create_program_from_file("./shaders/VertexShader.vert", "./shaders/FragmentShader.frag");
+	std::cout << "gpu program id : " << m_gpuProgramID << std::endl;
+	
 }
 
 void Window::shutdown()
@@ -85,9 +93,15 @@ void Window::onUpdate()
 
 	ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
-    ImGui::NewFrame();
+	ImGui::NewFrame();
+	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
-	ImGui::ShowDemoWindow();
+
+	ImGui::Begin("Rendu");
+	glUseProgram(m_gpuProgramID);
+	ImGui::End();
+
+	//ImGui::ShowDemoWindow();
 
 	int display_w, display_h;
     glfwGetFramebufferSize(m_window, &display_w, &display_h);
@@ -96,6 +110,8 @@ void Window::onUpdate()
     glClear(GL_COLOR_BUFFER_BIT);
 
 	ImGui::Render();
+
+
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 	glfwSwapBuffers(m_window);
