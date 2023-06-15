@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include "Core.h"
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <imgui.h>
@@ -7,8 +9,6 @@
 #include <backends/imgui_impl_opengl3.h>
 
 #include "../assets/Roboto-Regular.embed"
-
-#include <iostream>
 
 Window::Window(uint32_t width, uint32_t height, const std::string& title)
 {
@@ -84,8 +84,7 @@ void Window::initialize()
 	*****************************************/
 	GLenum err = glewInit();
 	m_gpuProgramID = glhelper::create_program_from_file("./shaders/VertexShader.vert", "./shaders/FragmentShader.frag");
-	std::cout << "gpu program id : " << m_gpuProgramID << std::endl;
-	
+	LB_LOG_INFO("gpu program id : " << m_gpuProgramID);
 }
 
 void Window::shutdown()
