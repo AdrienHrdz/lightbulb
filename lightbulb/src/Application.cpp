@@ -1,8 +1,8 @@
 #include "Application.h"
 
-#include <iostream>
-
 #include <imgui.h>
+
+#include "Core.h"
 
 // singleton instance
 Application* Application::s_instance = nullptr;
@@ -38,7 +38,6 @@ void Application::onEvent(Event& e)
 
 bool Application::onWindowClose(WindowCloseEvent& e)
 {
-	std::cout << "On close event (from Application class)" << std::endl;
 	m_running = false;
 	return true;
 }
