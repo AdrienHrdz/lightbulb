@@ -106,8 +106,7 @@ void Window::onUpdate()
 	ImGui::NewFrame();
 	ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
 
-
-	ImGui::Begin("Rendu");
+	ImGui::Begin("Viewport");
 	glUseProgram(m_gpuProgramID);
 	ImGui::End();
 
