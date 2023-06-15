@@ -100,7 +100,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>$(CoreLibraryDependencies);glfw3.lib;OpenGL32.Lib;glew32s.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lightbulb\lib\GLEW\lib\Release\x64;$(SolutionDir)lightbulb\lib\GLFW\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lightbulb\lib\GLEW\lib\Release\Win32;$(SolutionDir)lightbulb\lib\GLFW\lib-vc2022;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -128,7 +128,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);GLEW_STATIC;LB_DEBUG</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);LB_DEBUG</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalUsingDirectories>
       </AdditionalUsingDirectories>
@@ -492,6 +492,7 @@
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="lib\GLFW\lib-vc2022\glfw3.dll" />
     <None Include="lib\glm\glm\detail\func_common.inl" />
     <None Include="lib\glm\glm\detail\func_common_simd.inl" />
     <None Include="lib\glm\glm\detail\func_exponential.inl" />
@@ -634,6 +635,11 @@
     <None Include="lib\imgui\Roboto-Regular.embed" />
     <None Include="shaders\FragmentShader.frag" />
     <None Include="shaders\VertexShader.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\GLFW\lib-vc2022\glfw3.lib" />
+    <Library Include="lib\GLFW\lib-vc2022\glfw3dll.lib" />
+    <Library Include="lib\GLFW\lib-vc2022\glfw3_mt.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
